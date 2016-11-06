@@ -31,12 +31,21 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-
+         for(i = 0; i < allFeeds.length; i++){
+         	it('RSS feeds have url' function(){
+         		expect(allFeeds[i].url).not.toBe(0);
+         	});
+         };
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         for(i = 0; i < allFeeds.length; i++){
+         	it('RSS feeds have name' function(){
+         		expect(allFeeds[i].name).not.toBe(0);
+         	});
+         };
     });
 
 
