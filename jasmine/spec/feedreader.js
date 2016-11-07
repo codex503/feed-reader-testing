@@ -69,6 +69,11 @@ $(function() {
           */
           it('menu changes', function(){
           	var menuStatus = $(.menu-icon-link);
+          	menuStatus.click();
+          	expect($('body').hasClass('menu-hidden'))toBe(true);
+          	menuStatus.click();
+          	expect($('body').hasClass('menu-hidden'))toBe(false);
+
           })
 
     /* TODO: Write a new test suite named "Initial Entries" */
