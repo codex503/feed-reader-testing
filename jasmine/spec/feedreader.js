@@ -73,9 +73,9 @@ $(function() {
           it('menu changes', function(){
           	var menuStatus = $('.menu-icon-link');
           	menuStatus.click();
-          	expect($('body').hasClass('menu-hidden')).toBe(true);
+          	expect($('body').hasClass('menu-hidden')).toEqual(false);
           	menuStatus.click();
-          	expect($('body').hasClass('menu-hidden')).toBe(false);
+          	expect($('body').hasClass('menu-hidden')).toEqual(true);
 
           })
 
@@ -89,7 +89,7 @@ $(function() {
     	});
 
     	// checks for entry
-    	it('feed container has an entry', function(){
+    	it('feed container has at least one entry', function(){
     		var entryNum = $('.entry').length;
     		expect(entryNum).toBeGreaterThan(0);
     	});
