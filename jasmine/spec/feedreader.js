@@ -55,20 +55,21 @@ $(function() {
       //    * hidden by default.
     		expect(menuTest).toEqual(true);
     	});
+
+        // test that ensures the menu changes
+          // * visibility when the menu icon is clicked. 
+          it('menu changes', function(){
+            var menuStatus = $('.menu-icon-link');
+            menuStatus.click();
+            expect($('body').hasClass('menu-hidden')).toEqual(false);
+            menuStatus.click();
+            expect($('body').hasClass('menu-hidden')).toEqual(true);
+          })
     });
         
 
 
-          // test that ensures the menu changes
-          // * visibility when the menu icon is clicked. 
-          it('menu changes', function(){
-          	var menuStatus = $('.menu-icon-link');
-          	menuStatus.click();
-          	expect($('body').hasClass('menu-hidden')).toEqual(false);
-          	menuStatus.click();
-          	expect($('body').hasClass('menu-hidden')).toEqual(true);
-
-          })
+          
 
     /* test suite named "Initial Entries" */
     describe('Initial Entries', function(){
