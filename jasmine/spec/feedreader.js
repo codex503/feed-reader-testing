@@ -32,9 +32,10 @@ $(function() {
          * and that the URL is not empty.
          */
          
-         it('RSS feeds have url' function(){
-         	for(i = 0; i < allFeeds.length; i++){
-         		expect(allFeeds[i].url).not.toBe(0);
+         it('RSS feeds have url', function(){
+         	for(var i in allFeeds){
+         		expect(allFeeds[i].url).toBeDefined();
+                expect(allFeeds[i].url.length).not.toBe(0)
          	};
          });
 
@@ -43,20 +44,24 @@ $(function() {
          * and that the name is not empty.
          */
          
-         it('RSS feeds have name' function(){
-         	for(i = 0; i < allFeeds.length; i++){
-         		expect(allFeeds[i].name).not.toBe(0);
-         	};
-         });
+         it('RSS feeds have name', function(){
+         	for(var i in allFeeds){
+         		expect(allFeeds[i].name).toBeDefined(0);
+                expect(allFeeds[i].name.length).not.toBe(0);
+                expect(typeof allFeeds[i].name).toBe('string');
+         	}
+         })
     });
 
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function(){
+
+        var menuTest = $('body').hasClass('menu-hidden');
+
     	it('menu should be hidden', function(){
     		// test that ensures the menu element is
       //    * hidden by default.
-    		var menuTest = $('body').hasClass('menu-hidden');
     		expect(menuTest).toEqual(true);
     	});
     });
@@ -66,16 +71,16 @@ $(function() {
           // test that ensures the menu changes
           // * visibility when the menu icon is clicked. 
           it('menu changes', function(){
-          	var menuStatus = $(.menu-icon-link);
+          	var menuStatus = $('.menu-icon-link');
           	menuStatus.click();
-          	expect($('body').hasClass('menu-hidden'))toBe(true);
+          	expect($('body').hasClass('menu-hidden')).toBe(true);
           	menuStatus.click();
-          	expect($('body').hasClass('menu-hidden'))toBe(false);
+          	expect($('body').hasClass('menu-hidden')).toBe(false);
 
           })
 
     /* TODO: Write a new test suite named "Initial Entries" */
-    describe('Initial Entries' function(){
+    describe('Initial Entries', function(){
     	// async call
     	beforeEach(function(done){
     		loadFeed(0, function(){
@@ -90,7 +95,7 @@ $(function() {
     	});
     });
 
-    describe('New Feed Selection'function(){
+    describe('New Feed Selection', function(){
     	var compareFirst;
     	var compareSecond;
 
